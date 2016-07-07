@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity Campaign.
+    -->
+    <changeSet id="20160707144326-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="owner_id"
+                                 baseTableName="campaign"
+                                 constraintName="fk_campaign_owner_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="company"/>
+
+        <addForeignKeyConstraint baseColumnNames="campaigns_id"
+                                 baseTableName="campaign_beacons"
+                                 constraintName="fk_campaign_beacons_beacon_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="campaign"/>
+        <addForeignKeyConstraint baseColumnNames="beacons_id"
+                                 baseTableName="campaign_beacons"
+                                 constraintName="fk_campaign_beacons_campaign_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="beacon"/>
+        
+        <addForeignKeyConstraint baseColumnNames="campaigns_id"
+                                 baseTableName="campaign_applications"
+                                 constraintName="fk_campaign_applications_application_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="campaign"/>
+        <addForeignKeyConstraint baseColumnNames="applications_id"
+                                 baseTableName="campaign_applications"
+                                 constraintName="fk_campaign_applications_campaign_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="application"/>
+        
+    </changeSet>
+</databaseChangeLog>

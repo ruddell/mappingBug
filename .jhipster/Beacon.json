@@ -1,0 +1,38 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipType": "many-to-one",
+      "relationshipName": "owner",
+      "otherEntityName": "company",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipId": 2,
+      "relationshipType": "many-to-many",
+      "relationshipName": "campaigns",
+      "otherEntityName": "campaign",
+      "ownerSide": false,
+      "otherEntityRelationshipName": "beacons"
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required",
+        "minlength",
+        "maxlength"
+      ],
+      "fieldValidateRulesMinlength": 2,
+      "fieldValidateRulesMaxlength": 100
+    }
+  ],
+  "changelogDate": "20160707144324",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "no",
+  "entityTableName": "beacon"
+}

@@ -1,0 +1,34 @@
+
+<div>
+    <h2><span>Campaign</span> {{vm.campaign.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Name</span></dt>
+        <dd>
+            <span>{{vm.campaign.name}}</span>
+        </dd>
+        <dt><span>Owner</span></dt>
+        <dd>
+            <a ui-sref="company-detail({id:vm.campaign.ownerId})">{{vm.campaign.ownerName}}</a>
+        </dd>
+        <dt><span>Beacons</span></dt>
+        <dd>
+            <span ng-repeat="beacons in vm.campaign.beacons">
+                <a ui-sref="beacon-detail({id: {{beacons.id}}})">{{beacons.name}}</a>{{$last ? '' : ', '}}
+            </span>
+        </dd>
+        <dt><span>Applications</span></dt>
+        <dd>
+            <span ng-repeat="applications in vm.campaign.applications">
+                <a ui-sref="application-detail({id: {{applications.id}}})">{{applications.name}}</a>{{$last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+</div>

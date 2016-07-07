@@ -1,0 +1,46 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipType": "many-to-one",
+      "relationshipName": "owner",
+      "otherEntityName": "company",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipId": 2,
+      "relationshipType": "many-to-many",
+      "relationshipName": "beacons",
+      "otherEntityName": "beacon",
+      "otherEntityField": "name",
+      "ownerSide": true
+    },
+    {
+      "relationshipId": 3,
+      "relationshipType": "many-to-many",
+      "relationshipName": "applications",
+      "otherEntityName": "application",
+      "otherEntityField": "name",
+      "ownerSide": true
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required",
+        "minlength",
+        "maxlength"
+      ],
+      "fieldValidateRulesMinlength": 2,
+      "fieldValidateRulesMaxlength": 100
+    }
+  ],
+  "changelogDate": "20160707144326",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "no",
+  "entityTableName": "campaign"
+}

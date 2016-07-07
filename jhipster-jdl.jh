@@ -1,0 +1,35 @@
+
+entity Beacon {
+	id Long,  // UUIDs aren't supported
+    name String required minlength(2) maxlength(100),
+}
+
+entity Application {
+	id Long,
+    name String required minlength(2) maxlength(100),
+}
+
+entity Campaign {
+	id Long,
+    name String required minlength(2) maxlength(100),
+}
+
+entity Company {
+    id Long,
+    name String required minlength(2) maxlength(100),
+}
+
+
+relationship ManyToOne {
+	Beacon{owner(name)} to Company,
+	Application{owner(name)} to Company,
+	Campaign{owner(name)} to Company
+}
+
+relationship ManyToMany {
+	Campaign{beacons(name)} to Beacon{campaigns},
+	Campaign{applications(name)} to Application{campaigns},
+    Company{users(login)} to User{companies}
+}
+
+dto all with mapstruct
